@@ -19,13 +19,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
+import os
+
+
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '=&7(h*piao(*f04u6)2k8#jvk!p5)$m_pe*$%=pb@^dyh^zsbv'
-
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '=&7(h*piao(*f04u6)2k8#jvk!p5)$m_pe*$%=pb@^dyh^zsbv')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-
-ALLOWED_HOSTS = []
+DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
+ALLOWED_HOSTS = ['kvpcity.netlify.app/']
 
 
 # Application definition
